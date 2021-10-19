@@ -3,5 +3,5 @@ class Order < ApplicationRecord
   enum status: { wait: 0, confirm: 1, making: 2, prepare: 3, finish: 4 }
   
   belongs_to :customer
-  has_many :order_details, dependent: :des
+  has_many :order_details, dependent: :destroy
 end
