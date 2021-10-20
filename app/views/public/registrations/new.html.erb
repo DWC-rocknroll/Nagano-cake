@@ -84,7 +84,7 @@
                 <td>パスワード(6文字以上)</td>
                 <td>
                   <div class="field">
-                    <%= f.password_field :encrypted_password, class:"ml-5" %>
+                    <%= f.password_field :password, class:"ml-5" %>
                   </div>
                 </td>
               </tr>
@@ -93,7 +93,7 @@
                 <td>パスワード(確認用)</td>
                 <td>
                   <div class="field">
-                    <%= f.password_field :encrypted_password_confirmation, class:"ml-5" %>
+                    <%= f.password_field :password_confirmation, class:"ml-5" %>
                   </div>
                 </td>
               </tr>
@@ -102,7 +102,7 @@
                 <td></td>
                 <td>
                   <div class="actions">
-                    <%= f.submit "新規登録", class:"ml-5 btn btn-success customer-sign-up" %>
+                    <%= f.submit "新規登録", class:"ml-5  btn btn-success customer-sign-up" %>
                   </div>
                 </td>
               </tr>
@@ -115,12 +115,12 @@
 
   <div class="row">
     <div class="col-md-4">
-      <h4 class="customer-new-link">既に登録済みの方</h4>
+      <h4 class="customer-already">既に登録済みの方</h4>
     </div>
     <div class="col-md-8"></div>
   </div>
   <div class="row">
-    <div class="col-md-5 customer-new-link">
+    <div class="col-md-5 customer-login-link">
       <%= link_to "こちら", new_customer_session_path %> からログインしてください。
     </div>
   </div>
