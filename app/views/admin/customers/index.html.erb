@@ -1,34 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-8">
-      <div class="customer-show">
-        <h4>会員一覧</h4>
-      </div>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>会員ID</th>
-              <th>氏名</th>
-              <th>メールアドレス</th>
-              <th>ステータス</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @customers.each do |customer| %>
-            <tr>
-              <td><%= link_to customer.id, edit_admin_customer_path(customer.id) %></td>
-              <td><%= customer.last_name %><%= customer.first_name %></td>
-              <td><%= customer.email %></td>
-              <td><% if customer.is_deleted == 'Invalid' %>
-              退会済み
-              <% else %>
-              有効会員
+    <div class="col-md-12">
+      <h4>会員一覧</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @customer.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td>
+              <%= link_to admin_customer_path(customer.id) do %>
+                <%= customer.last_name %>
+                <%= customer.first_name %>
               <% end %>
+            </td>
+            <td><%= customer.email %></td>
+            <% if customer.is_active == true %>
+              <td>
+                <span class="text-success font-weight-bold">会員</span>
               </td>
-            </tr>
+            <% else %>
+              <td>
+                <span class="text-danger font-weight-bold">退会</span>
+              </td>
             <% end %>
-          </tbody>
-        </table>
-      </div>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
