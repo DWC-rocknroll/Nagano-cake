@@ -11,12 +11,19 @@ class Public::DeliveriesController < ApplicationController
   end
 
   def destroy
+    delivery = Delivery.find(params[:id])
+    delivery.destroy
+    redirect_back(fallback_location: public_root_path)
   end
 
   def edit
+    @delivery = Delivery.find(params[:id])
   end
 
   def update
+    delivery = Delivery.find(params[:id])
+    delivery.update(delivery_params)
+    redirect_to  public_deliveries_path(delivery)
   end
 
   private
