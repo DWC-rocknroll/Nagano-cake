@@ -1,2 +1,87 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="customer-new">商品新規登録</h4>
+    </div>
+    <div class="col-md-9"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+      <%= form_with model: @product, url: admin_products_path, local: true do |f| %>
+          <table class="table table-noborder">
+            <tbody>
+              <tr>
+                <td>商品画像</td>
+                <td>
+                  <div class="img_field">
+                    <%= f.attachment_field :image, class:"form-control-file user_image",class:"ml-5"  %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>商品名</td>
+                <td>
+                  <div class="field">
+                    <%= f.text_field :name, :size=>"30", autofocus: true, placeholder: "商品名",class:"ml-5" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>商品説明</td>
+                <td>
+                  <div class="field">
+                    <%= f.text_area :introduction, :size=>"28",autofocus: true, placeholder: "ここに説明文を記述します", class:"ml-5" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>ジャンル</td>
+                <td>
+                  <div class="field">
+                    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>税込価格</td>
+                <td colspan="2">
+                <div class="field">
+                    <%= f.text_field :tax_out_price, :size=>"30", autofocus: true, placeholder: "1000", class:"ml-5" %>円
+                </div>
+                </td>
+              </tr>
+              <tr>
+                <td>販売ステータス</td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-7">
+                      <%= f.radio_button :is_sale_active, :true %>
+                      <%= f.label :is_sale_active, :"販売中" %>
+                      <%= f.radio_button :is_sale_active, :false %>
+                      <%= f.label :is_sale_active, :"販売停止中" %>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>
+                  <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-7">
+                      <%= f.submit "新規登録", class:"mx-5  btn btn-success",:size=>"30" %>
+                    </div>
+                    <div class="col-md-4"></div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
