@@ -1,2 +1,31 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<h2>ショッピングカート</h2>
+<%= link_to "カートを空にする", public_cart_item_destroy_path(@cart_item), method: :delete %>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cart_item.each do |cart_item|%>
+    <tr>
+      <td><%= attachment_image_tag(cart_item.product, :image, :fill, 80, 100, format: 'jpeg', size:"100×100",fallback: "no_image.jpg") %><%= cart_item.product.name %></td>
+      <td><%= cart_item.product.add_tax_tax_out_price %></td>
+      <td><%= cart_item.quantity %><%= link_to "変更", public_cart_item_path(cart_item), method: :patch ,class:"btn-button"%></td>
+      <td>＠＠＠円</td>
+      <td><%= link_to "削除する", public_cart_item_path(cart_item), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-bordered">
+  <thead><tr>合計金額</tr><tr>＠＠＠円</tr></thead>
+</table>
+
+<%= link_to "情報入力に進む", new_public_order_path(@cart_item) %>
