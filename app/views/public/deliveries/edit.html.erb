@@ -1,2 +1,30 @@
-<h1>Public::Deliveries#edit</h1>
-<p>Find me in app/views/public/deliveries/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><h2 class="head-line text-center title_h">配送先編集</h2></div>
+    <div class="col-md-9"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <%= form_with(model: @delivery, url:public_delivery_path, local: true, method: :patch) do |f| %>
+      <table class="table table-noborder">
+        <tbody>
+          <tr>
+            <td><%= f.label:"郵便番号（ハイフンなし）",class:"col-xs-3 control-label" %></td>
+            <td><%= f.text_field :postcode, class:"col-xs-2 form-control-static postal_code" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label:"住所",class:"col-xs-3 control-label" %></td>
+            <td><%= f.text_field :address, class:"col-xs-9 form-control-static address" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label:"宛名",class:"col-xs-3 control-label" %></td>
+            <td><%= f.text_field :name, class:"col-xs-4 form-control-static name" %></td>
+            <td><%= f.submit:"変更内容を保存",class:"btn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
