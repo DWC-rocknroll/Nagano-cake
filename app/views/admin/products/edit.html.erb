@@ -39,7 +39,7 @@
                 <td>ジャンル</td>
                 <td>
                   <div class="field">
-                    <%= f.select :is_sale_active, [['ケーキ', true], ['タルト', false]], prompt: "-- 選択してください --", class: "col-sm-9 is_sale" %>
+                   <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
                   </div>
                 </td>
               </tr>

@@ -32,13 +32,17 @@
                   <% end %>
                 </td>
                 <td class="text_left">
-                  税抜き価格
+                  <%= product.tax_out_price %>
                 </td>
                 <td>
-                  ジャンル
+                  <%= product.genre.name %>
                 </td>
                 <td>
-                  ステータス
+                  <% if product.is_sale_active == true %>
+                    <i class="fas fa-bullseye red"></i>販売中
+                  <% elsif product.is_sale_active == false %>
+                    <i class="fas fa-bullseye blue"></i>販売停止中
+                  <% end %>
                 </td>
               </tr>
             <% end %>
