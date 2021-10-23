@@ -5,6 +5,7 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @genres = Genre.all
   end
 
   def create
@@ -37,4 +38,9 @@ class Admin::ProductsController < ApplicationController
     :image,
     :is_sale_active,)
   end
+
+  # def @@@@@
+  #   params.require(:genre).permit(:name)
+  # end
+
 end
