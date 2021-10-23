@@ -42,7 +42,7 @@
   left: 50%;
   }
 
-.customer-new {
+.customer-new, .admin-new {
   margin-left: 70px;
   text-align: center;
   background-color: #DDDDDD;
@@ -73,14 +73,14 @@
   padding: 0
 }
 
-.customer-session-form {
+.customer-session-form, .admin-session-form {
   width: 70%;
 }
-.customer-session-label {
+.customer-session-label, .admin-session-label {
   width: 20%;
 }
 
-.customer-login {
+.customer-login, .admin-login {
   fontsize: 16px;
   font-weight: bold;
   width: 30%;
@@ -101,3 +101,47 @@
   border-top: 0;
 }
 
+.mypage_title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+}
+
+.mypage-button-table {
+  width: 60%;
+  margin-left: 15px;
+}
+
+.mypage-button-text {
+  font-weight: bold;
+  font-size: 20px;
+  width: 40%;
+}
+
+.mypage-button {
+  padding:  4% 20% 4% 20%;
+  text-align: center;
+}
+
+.mypage-button-index {
+  text-align: center;
+  width: 30%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.mypage-button-text-index {
+  font-weight: bold;
+  font-size: 20px;
+  width: 20%;
+  padding-left: 15px;
+}
+
+.mypage-table {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.mypage-table td {
+  border: solid black 1px !important;
+}

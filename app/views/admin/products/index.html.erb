@@ -1,2 +1,55 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"><h4 class="head-line text-center">商品一覧</h2></div>
+    <div class="col-md-9">
+      <%= link_to new_admin_product_path do %>
+        +
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <div id="create">
+        <table class="table table-hover table-bordered">
+          <thead>
+            <tr class="info">
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜き価格</th>
+              <th>ジャンル</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td>
+                  <%= product.id %>
+                </td>
+                <td class="text_left">
+                  <%= link_to admin_product_path(product.id) do %>
+                    <%= product.name %>
+                  <% end %>
+                </td>
+                <td class="text_left">
+                  <%= product.tax_out_price %>
+                </td>
+                <td>
+                  <%= product.genre.name %>
+                </td>
+                <td>
+                  <% if product.is_sale_active == true %>
+                    <i class="fas fa-bullseye red"></i>販売中
+                  <% elsif product.is_sale_active == false %>
+                    <i class="fas fa-bullseye blue"></i>販売停止中
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

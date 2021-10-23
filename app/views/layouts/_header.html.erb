@@ -54,7 +54,10 @@
               <%= link_to "新規登録", new_customer_registration_path, class: 'btn btn-primary mr-2' %>
             </li>
             <li>
-              <%= link_to "ログイン", customer_session_path, class: 'btn btn-primary mr-1' %>
+              <%= link_to "会員ログイン", customer_session_path, class: 'btn btn-primary mr-1' %>
+            </li>
+            <li>
+              <%= link_to "管理者ログイン", admin_session_path, class: 'btn btn-primary mr-1' %>
             </li>
           <% end %>
         </ul>
