@@ -36,11 +36,7 @@ class Admin::ProductsController < ApplicationController
     :introduction,
     :tax_out_price,
     :image,
-    :is_sale_active,)
+    :is_sale_active)
   end
-
-  # def @@@@@
-  #   params.require(:genre).permit(:name)
-  # end
 
 end

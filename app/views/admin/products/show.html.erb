@@ -11,7 +11,7 @@
         <dv class="field"><p>商品名<%= @product.name %></p></br></dv>
         <dv class="field"><p>商品説明<%= @product.introduction %></p></br></dv>
         <dv class="field"><p>ジャンル<%= @product.genre.name %></p></dv>
-        <dv class="field"><p>税込価格</p></br></dv>
+        <dv class="field"><p>税込価格（税抜価格）<%= @product.add_tax_tax_out_price.to_s(:dalimited) %>(<%= @product.tax_out_price %>)円</p></br></dv>
         <div class="field">
           <p>
             販売ステータス
