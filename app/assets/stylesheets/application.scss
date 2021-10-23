@@ -14,7 +14,7 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
 .introduction {
   position: relative;
   }
@@ -101,7 +101,7 @@
   border-top: 0;
 }
 
-.mypage_title {
+.mypage-title {
   background-color: #DDDDDD;
   text-align: center;
   width: 80%;
@@ -144,4 +144,27 @@
 
 .mypage-table td {
   border: solid black 1px !important;
+}
+.confirm-title {
+  text-align: center;
+  margin-top: 120px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.confirm-body {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.mypage-confirm-table {
+  margin: auto;
+  width: 25%;
+  text-align: center;
+}
+
+.mypage-confirm-table td {
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
 }
