@@ -1,0 +1,11 @@
+<%= form_with model:@genre, local:true do |f| %>
+  <form class="form-inline">
+    <div class="form-group">
+      <%= f.label :name, "ジャンル名" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'bnt btn-success' %>
+    </div>
+  </form>
+<% end %>
