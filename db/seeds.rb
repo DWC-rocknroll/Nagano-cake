@@ -18,3 +18,13 @@ Product.create(
     image: open("./app/assets/images/cake.png"),
     is_sale_active:true,
   )
+ Order.create(
+    customer_id:1,
+    postage: 800,
+    total_price: 3000,
+    payment_method: 0,
+    name:'令和道子',
+    deliveries_postcode:111111,
+    address:1111111,
+    status: 0,
+     )

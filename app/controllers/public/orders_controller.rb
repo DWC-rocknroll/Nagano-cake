@@ -5,7 +5,7 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_item = CartItem.all
-    @order = Order.find(parms[:id])
+    @order = Order.find(params[:id])
   end
 
   def create
@@ -19,6 +19,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
+    # @order_details = @order.order_details
   end
 
   def show
