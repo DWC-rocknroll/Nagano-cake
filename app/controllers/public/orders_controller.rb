@@ -1,11 +1,22 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
+    @order = Order.new
+    @customer = current_customer
 
   end
 
   def confirm
     @cart_item = CartItem.all
-    @order = Order.find(params[:id])
+    @order = Order.find(1)
+  end
+
+  def create
+    cart_item = current_customer.cart_item
+    order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    @order = Order.find(parms[:id])
   end
 
   def create
@@ -29,6 +40,8 @@ class Public::OrdersController < ApplicationController
   private
   def order_params
     params.require(:order).permit(
+    :order_id,
+    :address,
     :postal_code,
     :adress,
     :name,
