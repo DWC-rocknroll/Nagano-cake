@@ -14,7 +14,7 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
 .introduction {
   position: relative;
   }
@@ -101,7 +101,7 @@
   border-top: 0;
 }
 
-.mypage_title {
+.mypage-title {
   background-color: #DDDDDD;
   text-align: center;
   width: 80%;
@@ -144,4 +144,69 @@
 
 .mypage-table td {
   border: solid black 1px !important;
+}
+.confirm-title {
+  text-align: center;
+  margin-top: 120px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.confirm-body {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.mypage-confirm-table {
+  margin: auto;
+  width: 25%;
+  text-align: center;
+}
+
+.mypage-confirm-table td {
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+.plus-icon {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.products-index th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background-color: #DDDDD0;
+  text-align: center;
+}
+
+.products-index td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.customer-index-table th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background-color: #DDDDD0;
+  text-align: center;
+}
+
+.customer-index-table td {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  text-align: center;
+ }
+
+.ganre-add-table {
+  margin-bottom: 30px;
+}
+
+.genre-edit-buttom {
+  padding: 4% 10% 4% 10%;
+}
+
+.genre-add-buttom {
+  padding: 5% 10% 5% 10%;
 }
