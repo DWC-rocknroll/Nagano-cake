@@ -41,43 +41,17 @@
         <table class="table">
           <tbody>
             <tr>
+              <% @products.each do |product| %>
               <td>
-                <img src="/assets/nagano-cake-logo.png" class="img-thumbnail" alt="参考画像" width="200" height="200">
+                 <%= attachment_image_tag product, :image, size: "150x150",  fallback: "nagano-cake-logo.png" %>
                 </br>
-                <%= link_to public_root_path do %>
-                  商品名
+                <%= link_to public_product_path(product) do %>
+                  <%= product.name %>
                 <% end %>
                 </br>
-                <p>¥0.000</p>
+                <p>¥<%= product.add_tax_tax_out_price.to_s(:dalimited) %>(<%= product.tax_out_price %>)</p>
               </td>
-
-              <td>
-                <img src="/assets/nagano-cake-logo.png" class="img-thumbnail" alt="参考画像" width="200" height="200">
-                </br>
-                <%= link_to public_root_path do %>
-                  商品名
-                <% end %>
-                </br>
-                <p>¥0.000</p>
-              </td>
-              <td>
-                <img src="/assets/nagano-cake-logo.png" class="img-thumbnail" alt="参考画像" width="200" height="200">
-                </br>
-                <%= link_to public_root_path do %>
-                  商品名
-                <% end %>
-                </br>
-                <p>¥0.000</p>
-              </td>
-              <td>
-                <img src="/assets/nagano-cake-logo.png" class="img-thumbnail" alt="参考画像" width="200" height="200">
-                </br>
-                <%= link_to public_root_path do %>
-                  商品名
-                <% end %>
-                </br>
-                <p>¥0.000</p>
-              </td>
+              <% end %>
             </tr>
           </tbody>
         </table>
