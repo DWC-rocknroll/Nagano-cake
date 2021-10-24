@@ -1,5 +1,5 @@
 <h2>ショッピングカート</h2>
-<%= link_to "カートを空にする", public_cart_item_destroy_path(@cart_item), method: :delete %>
+<%= link_to "カートを空にする", public_cart_item_destroy_path(@cart_item), data: {confirm: 'カートを空にして本当によろしいですか？'}, method: :delete %>
 
 <table class="table table-bordered">
   <thead>

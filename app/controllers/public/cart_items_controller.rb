@@ -1,6 +1,7 @@
 class Public::CartItemsController < ApplicationController
   def index
     @cart_item = CartItem.all
+
   end
 
   def create
@@ -14,9 +15,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+    redirect_back(fallback_location: public_root_path)
   end
 
   def destroy_all
+    @cart_items = current_customer.cart_items
+    @cart_items.destroy_all
+    redirect_back(fallback_location: public_root_path)
   end
 
   private
