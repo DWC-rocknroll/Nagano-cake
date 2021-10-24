@@ -1,2 +1,25 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<div class ="container">
+    <div class"row">
+        <div class=>
+            <h2>注文情報確認</h2>   
+        </div>
+        <table>
+            <%= form_with model: @order, local: true do |f|%>
+            <tbody>
+                <%= current_customer.cart_item.each do |cart| %>
+                <tr>
+                    <td><%= attachment_image_tag cart.item %></td>
+                    <td><%= cart_item.name %></td>
+                    <td><%= cart_item.quantity %></td>
+                    <td><%= cart_item.product.add_tax_tax_out_price %></td>
+                </tr>
+                <% end %>
+            </tbody>  
+        </table>
+        <div class="payment">
+            送料￥800<%= f.hidden_field :postage, :value => 800 %></br>
+            商品合計￥</br>
+            請求金額￥
+        </div>
+    </div>
+</div>
