@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-10">
-      <%= form_with model: @product, url: admin_product_path, local: true do |f| %>
+        <%= form_with model: @product, url: admin_product_path, local: true do |f| %>
           <table class="table table-noborder">
             <tbody>
               <tr>
@@ -31,15 +31,15 @@
                 <td>商品説明</td>
                 <td>
                   <div class="field">
-                    <%= f.text_area :introduction, :size=>"28",autofocus: true, placeholder: "ここに説明文を記述します", class:"ml-5" %>
+                    <%= f.text_area :introduction, :size=>"28", autofocus: true, placeholder: "ここに説明文を記述します", class:"ml-5" %>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>ジャンル</td>
                 <td>
-                  <div class="field">
-                   <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい" %>
+                  <div class="field admin-products-edit-genre">
+                    <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択して下さい--", class:"ml-5"  %>
                   </div>
                 </td>
               </tr>
@@ -80,7 +80,7 @@
               </tr>
             </tbody>
           </table>
-      <% end %>
+        <% end %>
     </div>
   </div>
 </div>
