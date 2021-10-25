@@ -4,23 +4,32 @@
             <h2>注文情報確認</h2>
         </div>
         <table>
-            <%= form_with model: @order, local: true do |f|%>
             <tbody>
-                <%= current_customer.cart_item.each do |cart| %>
+                <%= @cart_item.each do |cart| %>
                 <tr>
-                    <td><%= attachment_image_tag cart.item %></td>
-                    <td><%= cart_item.name %></td>
-                    <td><%= cart_item.quantity %></td>
-                    <td><%= cart_item.product.add_tax_tax_out_price %></td>
+                    <td>商品イメージ</td>
+                    <td>商品ネーム</td>
+                    <td>数量</td>
+                    <td>小計</td>
                 </tr>
                 <% end %>
             </tbody>
-            <% end %>
         </table>
         <div class="payment">
             送料￥<%= f.hidden_field :postage, :value => 800 %></br>
             商品合計￥</br>
             請求金額￥
         </div>
+        <%= form_with model: @order, url: public_orders_path, local: true do |f|%>
+            <%= f.hidden_field :customer_id %>
+            <%= f.hidden_field :postage %>
+            <%= f.hidden_field :total_price %>
+            <%= f.hidden_field :payment_method %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :deliveries_postcode %>
+            <%= f.hidden_field :address %>
+            <%= f.hidden_field :status %>
+            <%=  f.submit "注文を確定する" %>
+        <% end %>
     </div>
 </div>

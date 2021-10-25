@@ -16,15 +16,25 @@ class Public::OrdersController < ApplicationController
     if params[:order][:flag] == "1"
       @order.address = current_customer.residence
       @order.deliveries_postcode = current_customer.postcode
-      @order.name = current_customer.first_name +current_customer.last_name
+      @order.name = current_customer.first_name +
+                    current_customer.last_name
+    # elsif params[:order][:flag] == "2"
+      # deliveries = Delivery.find(params[:order][])
+      # @order.address = deliveries.address
+      # @order.deliveries_postcode = deliveries.postcode
+      # @order.name = deliveries.name
+    elsif params[:order][:flag] == "3"
+      @order.address = params[:order][:adress]
+      @order.deliveries_postcode = params[:order][:deliveries_postcode]
+      @order.name = params[:order][:name]
     end
+
   end
 
   def create
     order = Order.new(order_params)
-    order.current_id = current_customer.id
     order.save
-    redirect_to  public_order_complete_path(order)
+    redirect_to complete_public_orders_path(order)
   end
 
   def complete
@@ -32,6 +42,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    # @order_details = @order.order_details
   end
 
   def show
