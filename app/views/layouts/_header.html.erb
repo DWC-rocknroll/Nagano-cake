@@ -2,9 +2,9 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <% if admin_signed_in? %>
-        <a class="navbar-brand" href="admin/"><%= image_tag 'nagano-cake-logo.png',size: '300x100' , class: 'logo'%></a>
+        <a class="navbar-brand" href="/admin"><%= image_tag 'nagano-cake-logo.png',size: '300x100' , class: 'logo'%></a>
       <% else %>
-        <a class="navbar-brand" href="public/"><%= image_tag 'nagano-cake-logo.png',size: '300x100' , class: 'logo'%></a>
+        <a class="navbar-brand" href="/public"><%= image_tag 'nagano-cake-logo.png',size: '300x100' , class: 'logo'%></a>
       <% end %>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
