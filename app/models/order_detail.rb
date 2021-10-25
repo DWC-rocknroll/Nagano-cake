@@ -3,4 +3,7 @@ class OrderDetail < ApplicationRecord
   
   belongs_to :order_detail
   belongs_to :product
+  
+  validates :tax_in_price, presence: true
+  validates :making_status, presence: true
 end
