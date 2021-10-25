@@ -40,13 +40,13 @@
         <%= form_with model: @order, url: public_orders_path, local: true do |f|%>
             <%= f.hidden_field :customer_id %>
             <%= f.hidden_field :postage %>
-            <%= f.hidden_field :total_price %>
+            <%= f.hidden_field :total_price,value: @total_price + @order.postage %>
             <%= f.hidden_field :payment_method %>
             <%= f.hidden_field :name %>
             <%= f.hidden_field :deliveries_postcode %>
             <%= f.hidden_field :address %>
             <%= f.hidden_field :status %>
-            <%= f.submit "注文を確定する" %>
+            <%=  f.submit "注文を確定する" %>
         <% end %>
     </div>
 </div>
@@ -54,3 +54,5 @@
 <%= @order.payment_method_i18n %>
 <%= @order.deliveries_postcode + @order.address %> <br>
 <%= @order.name %>
+
+

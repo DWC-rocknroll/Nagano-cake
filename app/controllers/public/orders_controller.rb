@@ -12,7 +12,6 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.postage = 800
     @order.customer_id = current_customer.id
-    @order.total_price = 10000
     if params[:order][:flag] == "1"
       @order.address = current_customer.residence
       @order.deliveries_postcode = current_customer.postcode
@@ -28,11 +27,12 @@ class Public::OrdersController < ApplicationController
       @order.deliveries_postcode = params[:order][:deliveries_postcode]
       @order.name = params[:order][:name]
     end
-    p @order
+
   end
 
   def create
     order = Order.new(order_params)
+    order.customer_id = current_customer.id
     order.save
     redirect_to complete_public_orders_path(order)
   end
