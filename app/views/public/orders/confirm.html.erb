@@ -5,20 +5,37 @@
         </div>
         <table>
             <tbody>
-                <%= @cart_item.each do |cart| %>
+                <% @total_price = 0 %>
+                <% @cart_item.each do |cart| %>
                 <tr>
                     <td>商品イメージ</td>
                     <td>商品ネーム</td>
                     <td>数量</td>
                     <td>小計</td>
                 </tr>
+                <tr>
+                    <td>
+                        <%= attachment_image_tag(cart.product, :image, :fill, 80, 100, format: 'jpeg', size:"100×100",fallback: "no_image.jpg") %>
+                        <%= cart.product.name %>
+                    </td>
+                    <td>
+                        <%= cart.product.add_tax_tax_out_price %>
+                    </td>
+                    <td>
+                        <%= cart.quantity %>
+                    </td>
+                    <td>
+                        <%= @sub_price = cart.product.add_tax_tax_out_price*cart.quantity %>
+                    </td>
+                </tr>
+                <% @total_price += @sub_price %>
                 <% end %>
             </tbody>
         </table>
         <div class="payment">
-            送料￥800<%= @order.postage %></br>
-            商品合計￥</br>
-            請求金額￥
+            送料￥<%= @order.postage %></br>
+            商品合計￥<%= @total_price %></br>
+            請求金額￥<%= @total_price + @order.postage  %>
         </div>
         <%= form_with model: @order, url: public_orders_path, local: true do |f|%>
             <%= f.hidden_field :customer_id %>
@@ -29,7 +46,11 @@
             <%= f.hidden_field :deliveries_postcode %>
             <%= f.hidden_field :address %>
             <%= f.hidden_field :status %>
-            <%=  f.submit "注文を確定する" %>
+            <%= f.submit "注文を確定する" %>
         <% end %>
     </div>
 </div>
+
+<%= @order.payment_method_i18n %>
+<%= @order.deliveries_postcode + @order.address %> <br>
+<%= @order.name %>

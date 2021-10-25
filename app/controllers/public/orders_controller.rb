@@ -8,7 +8,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @cart_item = CartItem.all
+    @cart_item = current_customer.cart_items
     @order = Order.new(order_params)
     @order.postage = 800
     @order.customer_id = current_customer.id
@@ -16,19 +16,19 @@ class Public::OrdersController < ApplicationController
     if params[:order][:flag] == "1"
       @order.address = current_customer.residence
       @order.deliveries_postcode = current_customer.postcode
-      @order.name = current_customer.first_name +
-                    current_customer.last_name
-    # elsif params[:order][:flag] == "2"
-      # deliveries = Delivery.find(params[:order][])
-      # @order.address = deliveries.address
-      # @order.deliveries_postcode = deliveries.postcode
-      # @order.name = deliveries.name
+      @order.name = current_customer.last_name +
+                    current_customer.first_name
+    elsif params[:order][:flag] == "2"
+      @delivery = Delivery.find(params[:order][:juusyo])
+      @order.address = @delivery.address
+      @order.deliveries_postcode = @delivery.postcode
+      @order.name = @delivery.name
     elsif params[:order][:flag] == "3"
-      @order.address = params[:order][:adress]
+      @order.address = params[:order][:address]
       @order.deliveries_postcode = params[:order][:deliveries_postcode]
       @order.name = params[:order][:name]
     end
-
+    p @order
   end
 
   def create
@@ -41,8 +41,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
-    # @order_details = @order.order_details
+
   end
 
   def show
@@ -54,12 +53,12 @@ class Public::OrdersController < ApplicationController
     :order_id,
     :address,
     :postal_code,
-    :adress,
     :name,
     :postage,
     :total_price,
     :payment_method,
     :deliveries_postcode,
-    :status)
+    :status
+    )
   end
 end
