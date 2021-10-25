@@ -8,23 +8,22 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @cart_item = CartItem.all
+    @cart_item = current_customer.cart_items
     @order = Order.new(order_params)
     @order.postage = 800
     @order.customer_id = current_customer.id
-    @order.total_price = 10000
     if params[:order][:flag] == "1"
       @order.address = current_customer.residence
       @order.deliveries_postcode = current_customer.postcode
-      @order.name = current_customer.first_name +
-                    current_customer.last_name
-    # elsif params[:order][:flag] == "2"
-      # deliveries = Delivery.find(params[:order][])
-      # @order.address = deliveries.address
-      # @order.deliveries_postcode = deliveries.postcode
-      # @order.name = deliveries.name
+      @order.name = current_customer.last_name +
+                    current_customer.first_name
+    elsif params[:order][:flag] == "2"
+      @delivery = Delivery.find(params[:order][:juusyo])
+      @order.address = @delivery.address
+      @order.deliveries_postcode = @delivery.postcode
+      @order.name = @delivery.name
     elsif params[:order][:flag] == "3"
-      @order.address = params[:order][:adress]
+      @order.address = params[:order][:address]
       @order.deliveries_postcode = params[:order][:deliveries_postcode]
       @order.name = params[:order][:name]
     end
@@ -33,7 +32,17 @@ class Public::OrdersController < ApplicationController
 
   def create
     order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    cart_items = current_customer.cart_items
     order.save
+    cart_items.each do |cart_item|
+      order_detail = order.order_details.new
+      order_detail.order_id = order.id
+      order_detail.product_id = cart_item.product_id
+      order_detail.order_quantity = cart_item.quantity
+      order_detail.tax_in_price = cart_item.product.tax_out_price*1.10
+      order_detail.save!
+    end
     redirect_to complete_public_orders_path(order)
   end
 
@@ -41,8 +50,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
-    # @order_details = @order.order_details
+
   end
 
   def show
@@ -54,12 +62,12 @@ class Public::OrdersController < ApplicationController
     :order_id,
     :address,
     :postal_code,
-    :adress,
     :name,
     :postage,
     :total_price,
     :payment_method,
     :deliveries_postcode,
-    :status)
+    :status
+    )
   end
 end
