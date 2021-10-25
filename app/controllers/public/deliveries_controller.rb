@@ -6,6 +6,7 @@ class Public::DeliveriesController < ApplicationController
 
   def create
     delivery = Delivery.new(delivery_params)
+    delivery.customer_id = current_customer.id
     delivery.save
     redirect_back(fallback_location: public_root_path)
   end
@@ -27,7 +28,6 @@ class Public::DeliveriesController < ApplicationController
   end
 
   private
-
   def delivery_params
     params.require(:delivery).permit(:postcode, :address, :name)
   end

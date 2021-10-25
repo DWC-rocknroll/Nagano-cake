@@ -46,6 +46,7 @@
   margin-left: 70px;
   text-align: center;
   background-color: #DDDDDD;
+  padding: 0.5% 2% 0.5% 2%;
   }
 
 .customer-new-sub {
@@ -167,4 +168,54 @@
   border: none;
   display: flex;
   justify-content: space-evenly;
+}
+.plus-icon {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.products-index th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background-color: #DDDDD0;
+  text-align: center;
+}
+
+.products-index td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.customer-index-table th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background-color: #DDDDD0;
+  text-align: center;
+}
+
+.customer-index-table td {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  text-align: center;
+ }
+
+.ganre-add-table {
+  margin-bottom: 30px;
+}
+
+.genre-edit-buttom {
+  padding: 4% 10% 4% 10%;
+}
+
+.genre-add-buttom {
+  padding: 5% 10% 5% 10%;
+}
+
+.admin-products-edit-genre {
+  margin-left: 7%;
+}
+
+.admin-genre-name {
+  font-weight: bold;
 }
