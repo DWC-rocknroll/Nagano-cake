@@ -18,17 +18,16 @@ class Public::OrdersController < ApplicationController
       @order.deliveries_postcode = current_customer.postcode
       @order.name = current_customer.first_name +
                     current_customer.last_name
-    # elsif params[:order][:flag] == "2"
-      # deliveries = Delivery.find(params[:order][])
-      # @order.address = deliveries.address
-      # @order.deliveries_postcode = deliveries.postcode
-      # @order.name = deliveries.name
+    elsif params[:order][:flag] == "2"
+      @delivery = Delivery.find(params[:order][:juusyo])
+      @order.address = @delivery.address
+      @order.deliveries_postcode = @delivery.postcode
+      @order.name = @delivery.name
     elsif params[:order][:flag] == "3"
-      @order.address = params[:order][:adress]
+      @order.address = params[:order][:address]
       @order.deliveries_postcode = params[:order][:deliveries_postcode]
       @order.name = params[:order][:name]
     end
-
   end
 
   def create
@@ -54,12 +53,12 @@ class Public::OrdersController < ApplicationController
     :order_id,
     :address,
     :postal_code,
-    :adress,
     :name,
     :postage,
     :total_price,
     :payment_method,
     :deliveries_postcode,
-    :status)
+    :status
+    )
   end
 end
