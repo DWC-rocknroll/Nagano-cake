@@ -54,6 +54,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    @cart_item = current_customer.cart_items
+    @orders = current_customer.orders
   end
 
   private
