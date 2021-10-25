@@ -5,7 +5,7 @@
         </div>
         <table>
             <tbody>
-                <%= @cart_item.each do |cart| %>
+                <% @cart_item.each do |cart| %>
                 <tr>
                     <td>商品イメージ</td>
                     <td>商品ネーム</td>
@@ -16,7 +16,7 @@
             </tbody>
         </table>
         <div class="payment">
-            送料￥<%= f.hidden_field :postage, :value => 800 %></br>
+            送料￥<%= hidden_field :postage, :value => 800 %></br>
             商品合計￥</br>
             請求金額￥
         </div>
