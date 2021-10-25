@@ -4,9 +4,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about' => 'homes#about'
     resources :customers, only: [:show, :edit, :update] do
-      collection do
-        post 'confirm'
-      end
+      get 'confirm'
       patch 'leave'
     end
     resources :products, only: [:index, :show]
