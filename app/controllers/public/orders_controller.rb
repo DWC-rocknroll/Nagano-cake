@@ -9,14 +9,15 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_item = CartItem.all
-    @order = Order.find(1)
-  end
-
-  def create
-    cart_item = current_customer.cart_item
-    order = Order.new(order_params)
-    order.customer_id = current_customer.id
-    @order = Order.find(parms[:id])
+    @order = Order.new(order_params)
+    @order.postage = 800
+    @order.customer_id = current_customer.id
+    @order.total_price = 10000
+    if params[:order][:flag] == "1"
+      @order.address = current_customer.residence
+      @order.deliveries_postcode = current_customer.postcode
+      @order.name = current_customer.first_name +current_customer.last_name
+    end
   end
 
   def create
@@ -30,9 +31,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private
