@@ -10,7 +10,7 @@
     <div class="col-md-2"></div>
   </div>
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-10 offset-md-1">
       <div id="create">
         <table class="table table-hover table-inverse products-index">
           <thead>
@@ -39,11 +39,15 @@
                 <td>
                   <%= product.genre.name %>
                 </td>
-                <td>
+                <td class="font-weight-bold h5">
                   <% if product.is_sale_active == true %>
-                    <i class="fas fa-bullseye red"></i>販売中
+                    <div class="text-success">
+                      販売中
+                    </div>
                   <% elsif product.is_sale_active == false %>
-                    <i class="fas fa-bullseye blue"></i>販売停止中
+                    <div class="text-danger">
+                      販売停止中
+                    </div>
                   <% end %>
                 </td>
               </tr>
