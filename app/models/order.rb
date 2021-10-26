@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   
   belongs_to :customer, optional: true
   has_many :order_details, dependent: :destroy
+  has_many :products, through: :order_details
   
   validates :postage, presence: true
   validates :total_price, presence: true
