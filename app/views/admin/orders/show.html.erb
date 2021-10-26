@@ -14,7 +14,7 @@
           </tr>
           <tr>
             <th class="order-show">注文日</th>
-            <td><%= @order.customer.created_at %></td>
+            <td><%= @order.customer.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
           </tr>
           <tr>
             <th class="order-show">配送先</th>
