@@ -43,7 +43,7 @@
             <tr>
               <td></td>
               <td><%= f.submit "編集内容を保存", class:"btn btn-success mypage-edit-submit" %></td>
-              <td><%= link_to "退会する", public_customer_confirm_path(current_customer), class:"btn btn-danger mypage-edit-leave" %></td>
+              <td><%= link_to "退会する", public_customer_leave_path(current_customer), class:"btn btn-danger mypage-edit-leave" %></td>
             </tr>
           </tbody>
         </table>
