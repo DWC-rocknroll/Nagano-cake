@@ -50,10 +50,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-
+    @orders = current_customer.orders
   end
 
   def show
+    @cart_item = current_customer.cart_items
+    @orders = current_customer.orders
   end
 
   private

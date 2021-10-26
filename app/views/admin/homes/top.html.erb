@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-12">
       <h2>注文履歴一覧</h2>
-      
+
         <table class="table">
           <thead>
             <tr class="active">
@@ -16,15 +16,14 @@
             <% @order.each do |order| %>
             <tr>
               <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
-              <td><%= order.customer.last_name %></td>
+              <td>名前</td>
               <td><%= order.order_details.sum(:order_quantity) %></td>
-
               <td><%= order.status_i18n %></td>
             </tr>
             <% end %>
           </tbody>
         </table>
-      
+
     </div>
   </div>
 </div>
