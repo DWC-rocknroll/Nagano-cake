@@ -23,10 +23,10 @@
           </td>
           <td>
             <% order.order_details.each do |detail| %>
-              <%= detail.product.name %>
+              <%= detail.product.name %> <br>
             <% end %>
           </td>
-          <td><%= order.total_price %></td>
+          <td><%= order.total_price.to_s(:delimited) %></td>
           <td>
             <% case order.status %>
             <% when "wait" %>
