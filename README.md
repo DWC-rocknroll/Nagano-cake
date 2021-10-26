@@ -1,24 +1,15 @@
-# README
+# ECサイト『ながのCAKE』 　　　　　　　　　　　
+利用方法について URL:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### ▽開発の背景
+元々近隣住民が顧客客だったECサイトですが、昨年始めたInstagramから人気となり、全国から注文が来る様になりました。InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管理機能を含んだ通販サイトを開設しようと思い至りました。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+アプリケーションの詳細な説明
+使用言語
+フレームワークのバージョン
+環境構築に必要な手順
+インフラ・フロント・バックそれぞれの技術選定
+実装した機能
+設計書
+使用方法
+作者
