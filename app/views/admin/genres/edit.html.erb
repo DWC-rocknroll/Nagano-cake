@@ -2,26 +2,17 @@
   <div class="row">
     <div class="col-md-6">
       <h4 class="mypage-title">ジャンル編集</h4>
-    
-      <table class="table table-noborder ganre-add-table">
         <%= form_with model:@genre, url:admin_genre_path(@genre.id), local:true do |f| %>
           <div class="row">
             <div class="form-group">
-              <td>
                 <%= f.label :name, "ジャンル名", class:"admin-genre-name" %>
-              </td>
-              <td>
                 <%= f.text_field :name %>
-              </td>
             </div>
             <div class="form-group">
-              <td>
-                <%= f.submit "変更を保存", class: 'bnt btn-success rounded' %>
-              </td>
+                <%= f.submit "変更を保存", class: 'bnt btn-success' %>
             </div>
           </div>
         <% end %>
-      </table>
     </div>
   </div>
 </div>
