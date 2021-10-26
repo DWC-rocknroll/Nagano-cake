@@ -11,8 +11,8 @@ ja:
         prepare: "発送準備中"
         finish: "発送済み"
     order_detail:
-      making_status:
-        impossible: "着手不可"
-        wait: "製作待ち"
-        making: "製作中"
-        complete: "製作完了"
+        making_status:
+          impossible: "着手不可"
+          wait: "製作待ち"
+          making: "製作中"
+          complete: "製作完了"

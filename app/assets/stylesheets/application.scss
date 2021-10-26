@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
 
 .introduction {
   position: relative;
@@ -220,7 +220,15 @@
   font-weight: bold;
 }
 
-.complete{
-  margin-top: 100px;
+.mypage-deliveries-index th {
+  border: 1px solid black !important;
+  background-color: #DDDDD0;
+}
+
+.mypage-deliveries-index tbody td {
+  border: 1px solid black !important;
+}
+
+.mypage-deliveries-button {
   text-align: center;
 }
