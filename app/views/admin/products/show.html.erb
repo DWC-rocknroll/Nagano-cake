@@ -29,11 +29,11 @@
               <td>販売ステータス</td>
               <td class="font-weight-bold h5">
                 <% if @product.is_sale_active == true %>
-                  <div class="text-success">
+                  <div class="text-success font-weight-bold">
                     販売中
                   </div>
-                <% elsif @product.is_sale_active == false %>
-                  <div class="text-danger">
+                <% elsif %>
+                  <div class="text-danger font-weight-bold">
                     販売停止中
                   </div>
                 <% end %>
