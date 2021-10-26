@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h4 class="mypage-title">配送先登録/一覧</h4>
+    </div>
+    <div class="col-md-9"></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <%= form_with model:@delivery,url:public_deliveries_path, local:true do |f| %>
+      <table class="table table-noborder">
+        <tbody>
+          <tr>
+            <td><%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-xs-3 control-label" %></td>
+            <td><%= f.text_field :postcode, autofocus: true, placeholder: "0000000", class: "col-xs-4 form-control-static postal_code" %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address, "住所", class: "col-xs-3 control-label"  %></td>
+            <td><%= f.text_field :address, :size=>60, autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-xs-7 form-control-static address" %></td>
+          </tr>
+          <tr>
+            <td>  <%= f.label :name, "宛名", class: "col-xs-3 control-label" %></td>
+            <td><%= f.text_field :name, autofocus: true, placeholder: "令和道子", class: "col-xs-4 form-control-static name" %></td>
+            <td><%= f.submit'新規登録',class: "col-xs-2 glyphicon glyphicon-pencil btn-sm btn-success rounded" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-10">
+      <div id="create">
+        <table class="table table-hover table- mypage-deliveries-index">
+          <thead>
+            <tr>
+              <th>郵便番号</th>
+              <th>住所</th>
+              <th>宛名</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @deliveries.each do |delivery| %>
+              <tr>
+                <td>
+                  <%= delivery.postcode %>
+                </td>
+                <td class="text_left">
+                  <%= delivery.address %>
+                </td>
+                <td class="text_left">
+                  <%= delivery.name %>
+                </td>
+                <td class="mypage-deliveries-button"><%= link_to "編集する", edit_public_delivery_path(delivery), class: "glyphicon glyphicon-pencil btn-sm btn-success" %> <%= link_to "削除する", public_delivery_path(delivery), method: :delete, class: "glyphicon glyphicon-pencil btn-sm btn-danger" %></td>
+              </tr>
+            <% end %>
+      </tbody>
+    </table>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

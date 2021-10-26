@@ -1,0 +1,87 @@
+<div class "container">
+  <div class"row">
+    <div class="col-md-3">
+      <h4 class="customer-new">注文情報入力</h4>
+    </div>
+    <div class="col-md-9"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4">
+    <%= form_with model: @order, url: confirm_public_orders_path, local: true do |f|  %>
+      <table class="table table-noborder">
+        <tbody>
+          <tr>
+            <td>
+              <strong>支払い方法</strong></br>
+              <%= f.radio_button :payment_method, :credit_card %>クレジットカード</br>
+              <%= f.radio_button :payment_method, :transfer %> 銀行振込</br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>お届け先</strong></br>
+              <%= f.radio_button :flag, 1 %>
+              ご自身の住所</br>
+              <%= @customer.postcode %>
+              <%= @customer.residence %></br>
+              <%= @customer.last_name %>
+              <%= @customer.first_name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.radio_button :flag, 2 %>
+              登録済み住所から選択</br>
+              <%= f.collection_select :juusyo, Delivery.all, :id, :full_address %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.radio_button :flag, 3 %>
+              新しいお届け先
+            </td>
+          </tr>
+
+          <tr>
+            <td>郵便番号（ハイフン無し)</td>
+            <td>
+              <div class="field">
+                <%= f.text_field :postcode, autofocus: true, placeholder: "0000000", class:"ml-3" %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>住所</td>
+            <td>
+              <div class="field">
+                <%= f.text_field :residence, :size=>"60", autofocus: true, placeholder: "東京都渋谷区代々木神園町0-0", class:"ml-3" %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>宛名</td>
+            <td>
+              <div class="field">
+                <%= f.text_field :name, autofocus: true, placeholder: "令和 道子", class:"ml-3" %>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="actions">
+                <%= f.submit "確認画面に進む", class: "btn btn-primary ml-5" %>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

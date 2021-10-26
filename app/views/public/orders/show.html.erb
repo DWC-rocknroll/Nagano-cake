@@ -1,0 +1,88 @@
+<h2>注文履歴詳細</h2> <br></br>
+注文情報<br></br>
+<!--<% @orders.each do |order| %>-->
+注文日: <%= order.created_at.strftime('%Y/%m/%d') %> <br>
+配送先：〒<%= order.deliveries_postcode %></br>
+          <%= order.address %></br>
+          <%= order.name %> </br>
+支払い方法：<%= order.payment_method_i18n %> <br>
+ステータス：<%= order.status_i18n %> <br>
+<!--<% end %>-->
+<br>
+請求情報
+<% @total_price = 0 %>
+          <% @cart_item.each do |cart| %>
+          <% cart.product.add_tax_tax_out_price %>
+          <% cart.quantity %>
+          <% @sub_price = cart.product.add_tax_tax_out_price*cart.quantity %>
+          <% @total_price += @sub_price %>
+          <% end %>
+商品合計:<%= @total_price %>
+配送料: 800
+ご請求額: <%= @total_price + 800 %>
+<br>
+注文内容<br>
+<% @total_price = 0 %>
+<!--<% @cart_item.each do |cart| %>-->
+商品：<%= cart.product.name %> <br></br>
+単価(税込):<%= cart.product.add_tax_tax_out_price %> <br></br>
+個数：<%= cart.quantity %> <br></br>
+小計：<%= @sub_price = cart.product.add_tax_tax_out_price*cart.quantity %>
+      <%  @total_price += @sub_price %> <br></br>
+<br></br>
+<!--<% end %>-->
+
+
+
+<tbody>
+  <tr>
+  <td>注文日</td>
+    <td>配送先</td>
+    <td>支払方法</td>
+    <td>ステータス</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+
+
+<div class="row">
+  <div class="col md-10">
+    <tbody>
+      <tr>
+        <td>注文日</td>
+        <td>配送先</td>
+        <td>支払方法</td>
+        <td>ステータス</td>
+      </tr>
+    </tbody>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<h2>注文内容</h2>
+<tbody>
+  <tr>
+  <td>商品</td>
+    <td>単価(税込)</td>
+    <td>個数</td>
+    <td>小計</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</tbody>
+

@@ -1,0 +1,234 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+.introduction {
+  position: relative;
+  }
+
+.introduction p {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  color: black;
+  background: white;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1;
+  padding: 5px 10px;
+  font-family :Quicksand, sans-serif;
+  }
+
+.introduction img {
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  }
+
+.customer-new, .admin-new {
+  margin-left: 70px;
+  text-align: center;
+  background-color: #DDDDDD;
+  padding: 0.5% 2% 0.5% 2%;
+  }
+
+.customer-new-sub {
+  margin-left: 70px;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.customer-already {
+  margin-left: 30px;
+  text-align: center;
+  background-color: #DDDDDD;
+  }
+
+.customer-login-link {
+  margin-left: 55px;
+  font-size: 18px;
+}
+
+.customer-sign-up {
+  font-size: 20px;
+  font-weight: bold;
+  width: 70%;
+  height: 30%;
+  padding: 0
+}
+
+.customer-session-form, .admin-session-form {
+  width: 70%;
+}
+.customer-session-label, .admin-session-label {
+  width: 20%;
+}
+
+.customer-login, .admin-login {
+  fontsize: 16px;
+  font-weight: bold;
+  width: 30%;
+}
+
+.customer-session-link-title {
+  margin-left: 50px;
+  background-color: #DDDDDD;
+  text-align: center;
+}
+
+.customer-session-link {
+  marfin-left: 55px;
+  text-align: center;
+}
+
+.table-noborder td {
+  border-top: 0;
+}
+
+.mypage-title {
+  background-color: #DDDDDD;
+  text-align: center;
+  width: 80%;
+}
+
+.mypage-button-table {
+  width: 60%;
+  margin-left: 15px;
+}
+
+.mypage-button-text {
+  font-weight: bold;
+  font-size: 20px;
+  width: 40%;
+}
+
+.mypage-button {
+  padding:  4% 20% 4% 20%;
+  text-align: center;
+}
+
+.mypage-button-index {
+  text-align: center;
+  width: 30%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.mypage-button-text-index {
+  font-weight: bold;
+  font-size: 20px;
+  width: 20%;
+  padding-left: 15px;
+}
+
+.mypage-table {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.mypage-table td {
+  border: solid black 1px !important;
+}
+.confirm-title {
+  text-align: center;
+  margin-top: 120px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.confirm-body {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+.mypage-confirm-table {
+  margin: auto;
+  width: 25%;
+  text-align: center;
+}
+
+.mypage-confirm-table td {
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+}
+.plus-icon {
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.products-index th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background-color: #DDDDD0;
+  text-align: center;
+}
+
+.products-index td {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.customer-index-table th {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background-color: #DDDDD0;
+  text-align: center;
+}
+
+.customer-index-table td {
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  text-align: center;
+ }
+
+.ganre-add-table {
+  margin-bottom: 30px;
+}
+
+.genre-edit-buttom {
+  padding: 4% 10% 4% 10%;
+}
+
+.genre-add-buttom {
+  padding: 5% 10% 5% 10%;
+}
+
+.admin-products-edit-genre {
+  margin-left: 7%;
+}
+
+.admin-genre-name {
+  font-weight: bold;
+}
+
+.mypage-deliveries-index th {
+  border: 1px solid black !important;
+  background-color: #DDDDD0;
+}
+
+.mypage-deliveries-index tbody td {
+  border: 1px solid black !important;
+}
+
+.mypage-deliveries-button {
+  text-align: center;
+}

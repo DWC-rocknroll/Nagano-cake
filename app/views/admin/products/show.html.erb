@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <h4 class="customer-new">商品詳細</h4>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+        <div class="id img-field"><%= attachment_image_tag(@product, :image, :fill, 300, 300, format: 'jpeg', size:"100×100",fallback: "no_image.jpg") %></div>
+      </div>
+      <div class="col-md-8">
+        <table class="table table-noborder">
+          <tbody>
+            <tr>
+              <td>商品名</td>
+              <td><%= @product.name %></td>
+            </tr>
+            <tr>
+              <td>商品説明</td>
+              <td><%= @product.introduction %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @product.genre.name %></td>
+            </tr>
+            <tr>
+              <td>税込価格（税抜価格）</td>
+              <td><%= @product.add_tax_tax_out_price.to_s(:dalimited) %>(<%= @product.tax_out_price %>)円</td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td class="font-weight-bold h5">
+                <% if @product.is_sale_active == true %>
+                  <div class="text-success">
+                    販売中
+                  </div>
+                <% elsif @product.is_sale_active == false %>
+                  <div class="text-danger">
+                    販売停止中
+                  </div>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <div class="acstions col-md-12">
+        <%= link_to "編集する", edit_admin_product_path(@product), data: {"turbolinks" => false}, class: "glyphicon glyphicon-pencil btn btn-success pull-right" %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
