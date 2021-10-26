@@ -11,5 +11,5 @@ class Product < ApplicationRecord
   validates :introduction, presence: true
   validates :genre_id, presence: true
   validates :tax_out_price, presence: true
-  validates :is_sale_active, presence: true
+  validates :is_sale_active, inclusion: [true, false]
 end

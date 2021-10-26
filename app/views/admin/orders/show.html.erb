@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h3>注文履歴詳細</h3>
-        
+
         <table class="order-customer">
           <tr>
             <th class="order-show">購入者</th>
@@ -14,7 +14,7 @@
           </tr>
           <tr>
             <th class="order-show">注文日</th>
-            <td><%= @order.customer.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+            <td><%= @order.customer.created_at.strftime("%Y/%m/%d ") %></td>
           </tr>
           <tr>
             <th class="order-show">配送先</th>
@@ -35,7 +35,7 @@
             </td>
           </tr>
         </table>
-        
+
       <div class="col-xs-9">
         <table class="table order-products">
           <thead>
