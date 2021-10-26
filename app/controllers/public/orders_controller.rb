@@ -41,7 +41,8 @@ class Public::OrdersController < ApplicationController
       order_detail.product_id = cart_item.product_id
       order_detail.order_quantity = cart_item.quantity
       order_detail.tax_in_price = cart_item.product.tax_out_price*1.10
-      order_detail.save!
+      order_detail.save
+      cart_item.destroy
     end
     redirect_to complete_public_orders_path(order)
   end
@@ -50,23 +51,23 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-
+    @orders = current_customer.orders.includes(:order_details, :products)
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = @order.order_details
   end
 
   private
   def order_params
     params.require(:order).permit(
-    :order_id,
-    :address,
-    :postal_code,
-    :name,
     :postage,
     :total_price,
     :payment_method,
+    :name,
     :deliveries_postcode,
+    :address,
     :status
     )
   end

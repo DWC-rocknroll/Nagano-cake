@@ -43,7 +43,9 @@
             <tr>
               <% @products.each do |product| %>
               <td>
-                 <%= attachment_image_tag product, :image, size: "150x150",  fallback: "nagano-cake-logo.png" %>
+                  <%= link_to public_product_path(product) do %>
+                     <%= attachment_image_tag product, :image, size: "150x150",  fallback: "nagano-cake-logo.png" %>
+                   <% end %>
                 </br>
                 <%= link_to public_product_path(product) do %>
                   <%= product.name %>
