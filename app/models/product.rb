@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  enum is_sale_active: { 販売中: true, 販売停止中: false }
   has_many :cart_items
   has_many :order_details
   belongs_to :genre
