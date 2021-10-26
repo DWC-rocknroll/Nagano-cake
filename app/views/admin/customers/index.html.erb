@@ -1,12 +1,13 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-1"></div>
     <div class="col-md-3">
       <h4 class="mypage-title">会員一覧</h4>
     </div>
-    <div class="col-md-9"></div>
+    <div class="col-md-8"></div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-10 offset-md-1">
       <table class="table customer-index-table">
         <thead>
           <tr>
@@ -29,11 +30,11 @@
             <td><%= customer.email %></td>
             <% if customer.is_active == true %>
               <td>
-                <span class="text-success font-weight-bold">有効</span>
+                <span class="text-success font-weight-bold h5">有効</span>
               </td>
             <% else %>
               <td>
-                <span class="text-danger font-weight-bold">退会</span>
+                <span class="text-danger font-weight-bold h5">退会</span>
               </td>
             <% end %>
           </tr>
