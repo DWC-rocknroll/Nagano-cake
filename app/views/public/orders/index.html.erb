@@ -15,7 +15,7 @@
       <tbody>
         <% @orders.each do |order| %>
         <tr>
-          <td><%= order.created_at.strftime('%Y/%m/%d ') %></td>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>
             〒<%= order.deliveries_postcode %></br>
             <%= order.address %></br>
@@ -39,7 +39,7 @@
                 <%= "発送準備中" %>
             <% when "finish" %>
                 <%= "発送済み" %>
-            <% end %>
+          <% end %>
           </td>
           <td><%= link_to "表示する", public_order_path(order), class: "btn btn-primary" %></td>
         </tr>
