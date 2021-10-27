@@ -47,11 +47,9 @@
                      <%= attachment_image_tag product, :image, size: "150x150",  fallback: "nagano-cake-logo.png" %>
                    <% end %>
                 </br>
-                <%= link_to public_product_path(product) do %>
                   <%= product.name %>
-                <% end %>
                 </br>
-                <p>¥<%= product.add_tax_tax_out_price.to_s(:dalimited) %>(<%= product.tax_out_price %>)</p>
+                <p>¥<%= product.add_tax_tax_out_price.to_s(:delimited) %>(<%= product.tax_out_price.to_s(:delimited) %>)</p>
               </td>
               <% end %>
             </tr>

@@ -34,7 +34,7 @@
       <div style="width:400px; height:300px; float:left;">
         <h3 style="color: black;"><%= @product.name %></h3><br>
         <p><%= @product.introduction %></p>
-        <p>¥<%= @product.add_tax_tax_out_price.to_s(:dalimited) %>(<%= @product.tax_out_price %>)<span style="font-size:12px;">（税込）</span></p>
+        <p>¥<%= @product.add_tax_tax_out_price.to_s(:delimited) %><span style="font-size:12px;">（税込）</span></p>
       </div>
       <div class="col-xs-5">
          <%= form_with model:@cart_item, url:public_cart_items_path,local: true do |f|  %>
