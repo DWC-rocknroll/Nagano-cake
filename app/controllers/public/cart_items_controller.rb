@@ -5,9 +5,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    cart_item = CartItem.new(cart_item_params)
-    cart_item.customer_id = current_customer.id
-    cart_item.save
+    if current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id]).present?
+      cart_item = current_customer.cart_items.find_by(product_id: params[:cart_item][:product_id])
+      cart_item.quantity+=params[:cart_item][:quantity].to_i
+      cart_item.update(quantity: cart_item.quantity)
+    elsif
+      cart_item = CartItem.new(cart_item_params)
+      cart_item.customer_id = current_customer.id
+      cart_item.save
+    end
     redirect_to public_cart_items_path(cart_item)
   end
 
