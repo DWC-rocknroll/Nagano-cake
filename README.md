@@ -12,7 +12,7 @@ Ruby on Rails
 ### ▽実装した機能
 
 ### ▽設計書
-![画像の説明](image/)
+![画像の説明](https://docs.google.com/spreadsheets/d/1RHELHST-jMFWo1LvUq5tbb414-TcuYdSUcjzZ5dmg6M/edit#gid=1958091283)
 
 
 
