@@ -19,11 +19,15 @@ class Public::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     customer = Customer.find_by(email: params[:customer][:email])
-  if customer.is_active == true
-    redirect_to public_root_path(current_customer)
-  elsif customer.is_active == false
-    redirect_to public_root_path
-  end
+    if customer
+      if customer.is_active == true
+        redirect_to public_root_path(current_customer)
+      elsif customer.is_active == false
+        redirect_to public_root_path
+      end
+    else
+      redirect_to new_customer_session_path
+    end
   end
 
   # DELETE /resource/sign_out
