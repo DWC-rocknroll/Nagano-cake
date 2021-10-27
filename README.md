@@ -14,7 +14,7 @@ Ruby on Rails
 ### ▽設計書
 ![画像の説明](https://user-images.githubusercontent.com/84009331/139058730-05c4afa9-efa3-4fda-9171-de46172a6309.png)
 
-![画像の説明](https://github.com/DWC-rocknroll/Nagano-cake/files/7425801/-.pdf)
+![画像の説明](https://user-images.githubusercontent.com/84009331/139059307-7e85a9ee-9c20-411f-a1ce-2ac61fc5eafd.png)
 
 
 
