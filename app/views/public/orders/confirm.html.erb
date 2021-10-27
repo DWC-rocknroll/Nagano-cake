@@ -34,8 +34,8 @@
         </table>
         <div class="payment">
             送料￥<%= @order.postage %></br>
-            商品合計￥<%= @total_price %></br>
-            請求金額￥<%= @total_price + @order.postage  %>
+            商品合計￥<%= @total_price.to_s(:delimited)  %></br>
+            請求金額￥<%= (@total_price + @order.postage).to_s(:delimited)  %>
         </div>
         <%= form_with model: @order, url: public_orders_path, local: true do |f|%>
             <%= f.hidden_field :customer_id %>
