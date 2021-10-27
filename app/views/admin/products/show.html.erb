@@ -7,26 +7,26 @@
         <div class="id img-field"><%= attachment_image_tag(@product, :image, :fill, 300, 300, format: 'jpeg', size:"100×100",fallback: "no_image.jpg") %></div>
       </div>
       <div class="col-md-8">
-        <table class="table table-noborder">
+        <table class="table order-customer-table">
           <tbody>
             <tr>
-              <td>商品名</td>
+              <th>商品名</th>
               <td><%= @product.name %></td>
             </tr>
             <tr>
-              <td>商品説明</td>
+              <th>商品説明</th>
               <td><%= @product.introduction %></td>
             </tr>
             <tr>
-              <td>ジャンル</td>
+              <th>ジャンル</th>
               <td><%= @product.genre.name %></td>
             </tr>
             <tr>
-              <td>税込価格（税抜価格）</td>
+              <th>税込価格（税抜価格）</th>
               <td><%= @product.add_tax_tax_out_price.to_s(:delimited) %>(<%= @product.tax_out_price.to_s(:delimited) %>)円</td>
             </tr>
             <tr>
-              <td>販売ステータス</td>
+              <th>販売ステータス</th>
               <td class="font-weight-bold h5">
                 <% if @product.is_sale_active == true %>
                   <span class="text-success font-weight-bold">販売中</span>

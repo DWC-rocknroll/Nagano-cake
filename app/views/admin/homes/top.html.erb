@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-md-10 offset-md-1 text">
-        <table class="table">
+        <table class="table table-hover customer-index-table">
           <thead>
             <tr class="active">
               <th>購入日時</th>
@@ -27,7 +27,7 @@
             <% end %>
           </tbody>
         </table>
-      <%= paginate @order %>
+      <div><%= paginate @order %></div>
     </div>
   </div>
 </div>
