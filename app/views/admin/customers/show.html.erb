@@ -8,15 +8,15 @@
   <div class="row">
     <div class="col-md-8">
     <%= form_with model: @customer, url: admin_customer_path, local: true do |f| %>
-    <table class="table table-noborder">
+    <table class="table order-customer-table">
       <tbody>
         <tr>
-          <td>会員ID</td>
+          <th>会員ID</th>
           <td><%= @customer.id %></td>
         </tr>
 
         <tr>
-          <td>氏名</td>
+          <th>氏名</th>
           <td>
             <%= @customer.last_name %>
             <%= @customer.first_name %>
@@ -24,7 +24,7 @@
         </tr>
 
         <tr>
-          <td>フリガナ</td>
+          <th>フリガナ</th>
           <td>
             <%= @customer.last_name_kana %>
             <%= @customer.first_name_kana %>
@@ -32,14 +32,14 @@
         </tr>
 
         <tr>
-          <td>メールアドレス</td>
+          <th>メールアドレス</th>
           <td>
             <%= @customer.email %>
           </td>
         </tr>
 
         <tr>
-          <td>郵便番号(ハイフンなし)</td>
+          <th>郵便番号(ハイフンなし)</th>
           <td>
             <div>
               <%= @customer.postcode %>
@@ -48,14 +48,14 @@
         </tr>
 
         <tr>
-          <td>住所</td>
+          <th>住所</th>
           <td colspan="2">
             <%= @customer.residence %>
           </td>
         </tr>
 
         <tr>
-          <td>電話番号(ハイフンなし)</td>
+          <th>電話番号(ハイフンなし)</th>
           <td>
             <div class="field">
               <%= @customer.phone_number %>
@@ -64,7 +64,7 @@
         </tr>
 
         <tr>
-          <td>会員ステータス</td>
+          <th>会員ステータス</th>
           <td>
             <% if @customer.is_active == true %>
               <span class="text-success font-weight-bold">有効</span>
@@ -73,19 +73,12 @@
             <% end %>
           </td>
         </tr>
-
-        <tr>
-          <td></td>
-          <td>
+      </tbody>
+    </table>
             <div class="actions">
               <%= link_to "編集する", edit_admin_customer_path(@customer.id), class:"btn btn-success" %>
               <%= link_to "注文履歴一覧をみる", admin_root_path, class:"btn btn-primary ml-3" %>
             </div>
-          </td>
-        </tr>
-
-      </tbody>
-    </table>
     <% end %>
   </div>
 </div>

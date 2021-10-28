@@ -7,9 +7,9 @@
   </div>
   <div class="row">
     <div class="col-sm-10">
-      <table class="order-customer">
+      <table class="table order-customer-table">
         <tr>
-          <th class="order-show">購入者</th>
+          <th>購入者</th>
           <td>
             <%= link_to admin_customer_path(@order.customer) do %>
             <%= @order.customer.last_name %>  <%= @order.customer.first_name %>
@@ -17,20 +17,20 @@
           </td>
         </tr>
         <tr>
-          <th class="order-show">注文日</th>
+          <th>注文日</th>
           <td><%= @order.customer.created_at.strftime("%Y/%m/%d") %></td>
         </tr>
         <tr>
-          <th class="order-show">配送先</th>
+          <th>配送先</th>
           <td>〒<%= @order.customer.postcode %> <%= @order.customer.residence %><br>
           <%= @order.customer.last_name %><%= @order.customer.first_name %></td>
         </tr>
         <tr>
-          <th class="order-show">支払方法</th>
+          <th>支払方法</th>
           <td><%= @order.payment_method_i18n %></td>
         </tr>
         <tr>
-          <th class="order-show">注文ステータス</th>
+          <th>注文ステータス</th>
           <td>
             <%= form_with model:@order, url:admin_order_path(@order) do |f| %>
             <%= f.select :status, Order.statuses_i18n.invert %>
@@ -43,7 +43,7 @@
   </div>
   <div class="row">
     <div class="col-md-9">
-      <table class="table order-products">
+      <table class="table table-hover customer-index-table">
         <thead>
           <tr>
             <th>商品名</th>
