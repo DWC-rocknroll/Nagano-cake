@@ -282,3 +282,100 @@
 .pagination {
   justify-content: center;
 }
+
+.new-product {
+  background-color: #ff0000;
+  color: #ffffff;
+  margin: 5px;
+  text-align: center;
+}
+.products-index {
+  background-color: #ff0000;
+  color: #ffffff;
+  margin: 5px;
+  width: 30%;
+  text-align: center;
+}
+
+.cart-item-title {
+  background-color: #ff0000;
+  color: #ffffff;
+  text-align: center;
+}
+
+.cart-item-table th {
+  border: 1px solid black !important;
+  margin-top: 10px;
+  background-color: #DDDDD0;
+}
+
+.cart-item-table td {
+  border: 1px solid black !important;
+}
+
+.total-price-table  th{
+  text-align: center;
+  border: 1px solid black !important;
+}
+
+.cart-item-confirm-btn {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.order-continue-btn {
+  text-align: center;
+}
+
+.move-confirm-button {
+  text-align: center;
+}
+
+.order-new {
+  background-color: #ddddd0;
+}
+
+.order-finish-button {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.order-confirm-table td {
+  border: 1px solid black;
+  background-color: #ddddd0;
+}
+
+.order-confirm-table th {
+  border: 1px solid black;
+}
+
+.price-index-table td {
+  background-color: #ddddd0;
+  border: 1px solid black;
+}
+
+.price-index-table th {
+  border: 1px solid black;
+}
+
+.confirm-payment-method {
+  margin-left: 50px;
+}
+
+.order-complete {
+  margin-top: 250px;
+  text-align: center;
+}
+
+.order-index-table th {
+  border: 1px solid black !important;
+  background-color: #ddddd0;
+}
+
+.order-index-table td {
+  border: 1px solid black;
+}
+
+.products-in-cart-form {
+  text-align: right;
+}
